@@ -18,12 +18,6 @@ namespace _4_laba_3_sem
             public int usefulness { get; set; }
         }
 
-        public struct Inf_struct
-        {
-            public List<_Inf_struct> all_Order;
-
-        }
-
         static void Main(string[] args)
         {
             int numer=0;
@@ -42,51 +36,31 @@ namespace _4_laba_3_sem
                         {
                             Inf_data.category = _line.Substring(0, _line.IndexOf(":"));
                             ++numer;
-                            Console.WriteLine(Inf_data.category);
-                            Console.ReadLine();
                         }
                         else if (numer == 1)
                         {
                             Inf_data.name = _line.Substring(0, _line.IndexOf(":"));
                             ++numer;
-                            Console.WriteLine(Inf_data.name);
-                            Console.ReadLine();
                         }
                         else if (numer == 2)
                         {
                             Inf_data.pries = Convert.ToInt32(_line.Substring(0, _line.IndexOf(":")));
                             ++numer;
-                            Console.WriteLine(Inf_data.pries);
-                            Console.ReadLine();
                             _line = _line.Remove(0, (_line.IndexOf(":")) + 1);
 
 
                             Inf_data.usefulness = Convert.ToInt32(_line);
                             numer=0;
-                            Console.WriteLine(Inf_data.usefulness);
-                            Console.WriteLine(numer);
-                            Console.ReadLine();
-                            _line = " " +
-                                "";
+
+                            _line = " ";
                         }
                         if (numer != 0)
                             _line = _line.Remove(0, (_line.IndexOf(":")) + 1);
-
-                        Console.WriteLine(_line+ " _line");
-                        Console.ReadLine();
                     }
-                    Console.WriteLine(line + " line");
+                    Console.WriteLine(Inf_data.category + ':'+ Inf_data.name + ':'+ Inf_data.pries + ':'+ Inf_data.usefulness);
                     Console.ReadLine(); 
                 }
             }
-
-            string Text_Data = File.ReadAllText(Path_inf);
-            Console.WriteLine(Text_Data);
-
-            Console.ReadLine();
-
-            string Text_inf_data= Text_Data;
-
         }
     }
 }
